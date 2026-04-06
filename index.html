@@ -164,7 +164,7 @@ body{
 
   <!-- 导航 -->
   <div class="navbar">
-    <div class="back"><svg viewBox="0 0 9 15" fill="none" stroke="#007aff" stroke-width="1.8"><polyline points="8,1 1.5,7.5 8,14"/></svg> 深链智梦溯源</div>
+    <div class="back" onclick="history.back()" style="cursor:pointer"><svg viewBox="0 0 9 15" fill="none" stroke="#007aff" stroke-width="1.8"><polyline points="8,1 1.5,7.5 8,14"/></svg> 深链智梦溯源</div>
     <div class="ntitle"></div>
     <div class="nmore">···</div>
   </div>
@@ -299,7 +299,7 @@ let current = 10;
 function rate(n){
   current = n;
   document.querySelectorAll('.star').forEach((s,i)=>{
-    s.classList.toggle('on', i < n);
+    s.classList.toggle('on', i === n-1);
   });
 }
 function submit(){
