@@ -199,7 +199,7 @@ body{
     <!-- 查询次数 -->
     <div class="qbar">
       <div class="qbar-icon">📷</div>
-      <div class="qbar-txt">溯源查询次数：128 次</div>
+      <div class="qbar-txt">溯源查询次数：<span id="visit-count">...</span> 次</div>
       <div class="qbar-sub">实时更新</div>
     </div>
 
@@ -302,6 +302,16 @@ function rate(n){
     s.classList.toggle('on', i === n-1);
   });
 }
+
+fetch('https://api.countapi.xyz/hit/wine-trace-cynic/visits')
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('visit-count').textContent = data.value;
+  })
+  .catch(() => {
+    document.getElementById('visit-count').textContent = '128';
+  });
+
 let submitted = false;
 function submit(){
  if(submitted) return;
