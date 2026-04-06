@@ -302,8 +302,15 @@ function rate(n){
     s.classList.toggle('on', i === n-1);
   });
 }
+let submitted = false;
 function submit(){
-  alert('感谢您的反馈！');
+ if(submitted) return;
+  submitted = true;
+  alert('感谢您的反馈，已提交成功！');
+  document.querySelector('.submit-btn').textContent = '已提交';
+  document.querySelector('.submit-btn').style.background = '#aeaeb2';
+  document.querySelector('.submit-btn').style.boxShadow = 'none';
+  document.querySelector('.submit-btn').style.cursor = 'default';
 }
 </script>
 </body>
