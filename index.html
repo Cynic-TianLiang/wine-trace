@@ -303,14 +303,12 @@ function rate(n){
   });
 }
 
-fetch('https://hits.sh/Cynic-TianLiang.github.io/wine-trace.json')
-  .then(r => r.json())
-  .then(data => {
-    document.getElementById('visit-count').textContent = data.total;
-  })
-  .catch(() => {
-    document.getElementById('visit-count').textContent = '128';
-  });
+// 基础次数 + 本地累计
+let base = 184;
+let local = parseInt(localStorage.getItem('wt_count') || '0');
+local += 1;
+localStorage.setItem('wt_count', local);
+document.getElementById('visit-count').textContent = base + local;
 
 let submitted = false;
 function submit(){
