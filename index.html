@@ -303,10 +303,10 @@ function rate(n){
   });
 }
 
-fetch('https://api.countapi.xyz/hit/wine-trace-cynic/visits')
+fetch('https://hits.sh/Cynic-TianLiang.github.io/wine-trace.json')
   .then(r => r.json())
   .then(data => {
-    document.getElementById('visit-count').textContent = data.value;
+    document.getElementById('visit-count').textContent = data.total;
   })
   .catch(() => {
     document.getElementById('visit-count').textContent = '128';
